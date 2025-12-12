@@ -1,0 +1,198 @@
+![1765379819065](image/popup/1765379819065.png)<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>护眼模式切换器</title>
+    <style>
+        /* 弹出窗口样式 */
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            width: 280px;
+            padding: 15px;
+            margin: 0;
+            background-color: #f5f5f5;
+        }
+
+        h1 {
+            font-size: 18px;
+            margin: 0 0 15px 0;
+            color: #333;
+            text-align: center;
+        }
+
+        /* 模式选择区域 */
+        .mode-selection {
+            margin-bottom: 20px;
+        }
+
+        .mode-option {
+            display: flex;
+            align-items: center;
+            padding: 8px 10px;
+            margin-bottom: 8px;
+            background-color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .mode-option:hover {
+            background-color: #e8e8e8;
+        }
+
+        .mode-option input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .mode-option label {
+            cursor: pointer;
+            flex: 1;
+        }
+
+        /* 颜色选择区域 */
+        .color-settings {
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: white;
+            border-radius: 4px;
+            display: none;
+        }
+
+        .color-settings.show {
+            display: block;
+        }
+
+        .color-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .color-item label {
+            width: 80px;
+            font-size: 14px;
+        }
+
+        .color-item input[type="color"] {
+            flex: 1;
+            height: 30px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* 按钮 */
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        button {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 4px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.2s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        button.reset {
+            background-color: #f44336;
+        }
+
+        button.reset:hover {
+            background-color: #da190b;
+        }
+
+        /* 提示信息 */
+        .info {
+            font-size: 12px;
+            color: #666;
+            margin-top: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>护眼模式切换器</h1>
+    
+    <!-- 模式选择 -->
+    <div class="mode-selection">
+        <div class="mode-option">
+            <input type="radio" id="mode-none" name="mode" value="none">
+            <label for="mode-none">默认模式</label>
+        </div>
+        <div class="mode-option">
+            <input type="radio" id="mode-dark" name="mode" value="dark">
+            <label for="mode-dark">暗黑模式</label>
+        </div>
+        <div class="mode-option">
+            <input type="radio" id="mode-eye" name="mode" value="eye">
+            <label for="mode-eye">护眼模式</label>
+        </div>
+    </div>
+
+    <!-- 暗黑模式颜色设置 -->
+    <div class="color-settings" id="dark-color-settings">
+        <strong>暗黑模式颜色设置</strong>
+        <div class="color-item">
+            <label for="dark-bg">背景色:</label>
+            <input type="color" id="dark-bg" value="#121212">
+        </div>
+        <div class="color-item">
+            <label for="dark-text">文字色:</label>
+            <input type="color" id="dark-text" value="#e0e0e0">
+        </div>
+        <div class="color-item">
+            <label for="dark-link">链接色:</label>
+            <input type="color" id="dark-link" value="#8ab4f8">
+        </div>
+        <div class="color-item">
+            <label for="dark-accent">强调色:</label>
+            <input type="color" id="dark-accent" value="#bb86fc">
+        </div>
+    </div>
+
+    <!-- 护眼模式颜色设置 -->
+    <div class="color-settings" id="eye-color-settings">
+        <strong>护眼模式颜色设置</strong>
+        <div class="color-item">
+            <label for="eye-bg">背景色:</label>
+            <input type="color" id="eye-bg" value="#f2f2e8">
+        </div>
+        <div class="color-item">
+            <label for="eye-text">文字色:</label>
+            <input type="color" id="eye-text" value="#333333">
+        </div>
+        <div class="color-item">
+            <label for="eye-link">链接色:</label>
+            <input type="color" id="eye-link" value="#0066cc">
+        </div>
+        <div class="color-item">
+            <label for="eye-accent">强调色:</label>
+            <input type="color" id="eye-accent" value="#6699cc">
+        </div>
+    </div>
+
+    <!-- 按钮 -->
+    <div class="buttons">
+        <button id="save-btn">保存设置</button>
+        <button id="reset-btn" class="reset">恢复默认</button>
+    </div>
+
+    <!-- 提示信息 -->
+    <div class="info">
+        点击右上角菜单可固定插件图标
+    </div>
+
+    <!-- 引入脚本 -->
+    <script src="popup.js"></script>
+</body>
+</html>
